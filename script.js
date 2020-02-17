@@ -76,25 +76,20 @@ $("#search").on("click", function(event) {
     var humFore = response3.list[i].main.humidity;
     console.log(humFore);
         
-
-
-
-
     }
-
 
     });
 
-
     function renderCities() {
         // ("#cityfield").empty();
-
-        var location = $("<button>");
+        var location = $("<li>");
         location.text(city);
-        $("#cityfield").append(location);
+        $("#citieshere").append(location);
+
 
     }
     renderCities();
+    
 
 });
 

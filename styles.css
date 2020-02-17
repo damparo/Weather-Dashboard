@@ -1,26 +1,31 @@
 #banner {
-    background-color: none;
+    background-color: black;
     text-align: center;
-    width: 100%;
-    color: black;
+    color:white;
+    padding: 10px;
 }
-#cityfield {
-    background-color:rgb(185, 185, 221);
-    
+
+#cityfield {   
+}
+#citieshere {
+    list-style-type: none;
+}
+h2 {
+    font-size: 25px;
 }
 #weatherdetails {
     background-color:none;
 }
 #city-input {
-width:80% ;
+    width:80% ;
 
 
 
 }
 #search {
-width: 40px;
-height: 30px;
-background:rgb(30, 134, 219);
-color: #eeeeee;
-outline-color:rgb(74, 152, 216);
+    width: 40px;
+    height: 30px;
+    background:rgb(30, 134, 219);
+    color: #eeeeee;
+    outline-color:rgb(74, 152, 216);
 }
