@@ -5,11 +5,11 @@
     color: black;
 }
 #cityfield {
-    background-color: rgb(218, 154, 154);
+    background-color:rgb(185, 185, 221);
     
 }
 #weatherdetails {
-    background-color: rgb(172, 226, 172);
+    background-color:none;
 }
 #city-input {
 width:80% ;
