@@ -30,12 +30,17 @@ $("#search").on("click", function(event) {
     .then(function(response1){
         console.log(queryURL);
         console.log(response1);
+    
+    localStorage.setItem("citydata", JSON.stringify(response1));
+
 
     var temp = response1.main.temp;
     var humid = response1.main.humidity;
     var wind = response1.wind.speed;
     var uvlon = response1.coord.lon;
     var uvlat = response1.coord.lat;
+    var image = response1.weather[0].icon;
+    var wIcon = "http://openweathermap.org/img/w/" + image + ".png";
     // var uv = $("#weatherdetails");
     console.log(uvlat);
 
@@ -44,6 +49,10 @@ $("#search").on("click", function(event) {
         $("<p>").text("Temperature (F): " + temp),
         $("<p>").text("Humidity: " + humid + " %"),
         $("<p>").text("Wind Speed: " + wind + " MPH"),
+        $("<img>").attr("src", wIcon),
+
+        // "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png"
+
     $("#weatherdetails").empty()
     );
 
@@ -88,23 +97,20 @@ $("#search").on("click", function(event) {
         $("#citieshere").append(location);
         // var info = localStorage.getItem("citydata")
         
-        var displaycities = [];
+        // var displaycities = [];
         
         $(location).on("click", function(){
-        localStorage.setItem("citydata", JSON.stringify(city));
-            
+        // localStorage.setItem("citydata", JSON.stringify(city));
+        var places = JSON.parse(localStorage.getItem("citydata"));
+        if (places !== null){
+            // displaycities = places;
+        }   
+
+        
         });
 
-        function rendermyCities() {
-           var places = JSON.parse(localStorage.getItem("citydata"));
-           if (places !== null){
-               displaycities = places;
-           }
 
-        
-        };
-        
-        rendermyCities();
+    
 
 
 
