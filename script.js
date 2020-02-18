@@ -27,15 +27,15 @@ $("#search").on("click", function(event) {
     method: "GET"
     })
 
-    .then(function(response){
+    .then(function(response1){
         console.log(queryURL);
-        console.log(response);
+        console.log(response1);
 
-    var temp = response.main.temp;
-    var humid = response.main.humidity;
-    var wind = response.wind.speed;
-    var uvlon = response.coord.lon;
-    var uvlat = response.coord.lat;
+    var temp = response1.main.temp;
+    var humid = response1.main.humidity;
+    var wind = response1.wind.speed;
+    var uvlon = response1.coord.lon;
+    var uvlat = response1.coord.lat;
     // var uv = $("#weatherdetails");
     console.log(uvlat);
 
@@ -79,19 +79,40 @@ $("#search").on("click", function(event) {
     }
 
     });
-
+    
     function renderCities() {
         // ("#cityfield").empty();
         var location = $("<li>");
         location.text(city);
+        // location.css("outline-color", "red");
         $("#citieshere").append(location);
+        // var info = localStorage.getItem("citydata")
+        
+        var displaycities = [];
+        
+        $(location).on("click", function(){
+        localStorage.setItem("citydata", JSON.stringify(city));
+            
+        });
+
+        function rendermyCities() {
+           var places = JSON.parse(localStorage.getItem("citydata"));
+           if (places !== null){
+               displaycities = places;
+           }
+
+        
+        };
+        
+        rendermyCities();
+
 
 
     }
-    renderCities();
-    
 
+    renderCities();
 });
+
 
 
 
