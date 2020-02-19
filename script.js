@@ -1,18 +1,4 @@
-//information will be displayed in #weatherdetails
-//search icon id = "search"
-//#cityfield --display cities beneath seach bar
-
-
-// var uvlon = response.coord.lon;
-// var uvlat = response.coord.lat;
-//var uvqueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + "appid=" + "APIKey" + "&lat=" + "uvlon" + "&lon=" + "uvlat";
-// $.ajax({
-//     url: uvqueryURL,
-//     method: "GET"
-//     })
-
-
-
+var justDoit = [];
 $("#search").on("click", function(event) {
     event.preventDefault();
 
@@ -31,7 +17,8 @@ $("#search").on("click", function(event) {
         console.log(queryURL);
         console.log(response1);
     
-    localStorage.setItem("citydata", JSON.stringify(response1));
+    // localStorage.setItem("citydata", JSON.stringify(city));
+    localStorage.setItem("citydata", JSON.stringify(justDoit));
 
 
     var temp = response1.main.temp;
@@ -63,10 +50,19 @@ $("#search").on("click", function(event) {
     url: uvqueryURL,
     method: "GET"
     }).then(function(response2){
-        console.log(response2);
+        // console.log(response2);
         // uv.text(response2.value);
         console.log(response2.value);
+
+        $("#weatherdetails").append(
+            $("<p>").text("UV Index: " + response2.value),
+        );
+
     });
+    // $("#weatherdetails").append(
+    //     $("<p>").text("UV Index: " + response2.value),
+    // );
+
 
     })
 
@@ -80,15 +76,32 @@ $("#search").on("click", function(event) {
         console.log(forequeryURL);
         console.log(response3);
 
+    $("#weatherdetails").append(
+    $("<h4>").text("5 Day Forecast"));
+
     for (var i =0; i <5; i++){
-    var tempFore = response3.list[0].main.temp;
+    var tempFore = response3.list[i].main.temp;
     var humFore = response3.list[i].main.humidity;
+    var howOutside = response3.list[i].weather[0].icon;
+    var imgHowOutside = "http://openweathermap.org/img/w/" + howOutside + ".png";
     console.log(humFore);
-        
-    }
+
+    $("#weatherdetails").append(
+        // $("<h4>").text("5 Day Forecast"),
+        $("<div>").addClass("card-deck").append("<div>").addClass("card").append("<div>").addClass("card-body").append(
+            $("<img>").attr("src", imgHowOutside),
+            $("<p>").text("Temperature: " + tempFore),
+            $("<br>"),
+            $("<p>").text("Humidity: " + humFore)
+        ),
+    
+    )    
+    };
 
     });
     
+    
+
     function renderCities() {
         // ("#cityfield").empty();
         var location = $("<li>");
@@ -99,22 +112,22 @@ $("#search").on("click", function(event) {
         
         // var displaycities = [];
         
-        $(location).on("click", function(){
-        // localStorage.setItem("citydata", JSON.stringify(city));
+        $("#citieshere").on("click", function(){
+        // // localStorage.setItem("citydata", JSON.stringify(city));
         var places = JSON.parse(localStorage.getItem("citydata"));
-        if (places !== null){
-            // displaycities = places;
-        }   
+            justDoit = places;
+            justDoit.push(city);
+            $("#city-input").value = "";
+        
+        
+        // justDoit = places;
 
+    
         
         });
 
-
-    
-
-
-
     }
+
 
     renderCities();
 });

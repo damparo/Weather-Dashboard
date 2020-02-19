@@ -29,3 +29,7 @@ h2 {
     color: #eeeeee;
     outline-color:rgb(74, 152, 216);
 }
+
+.card-body {
+    background-color: rgb(135, 220, 226);
+}
