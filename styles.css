@@ -9,12 +9,22 @@
 }
 #citieshere {
     list-style-type: none;
+    padding-left: 0;
+    /* display: flex; */
+    background: none;
+    color: inherit;
+    outline: inherit;
 }
 h2 {
     font-size: 25px;
 }
-#weatherdetails {
+#weatherdetails1 {
     background-color:none;
+  
+}
+#weatherdetails2 {
+    background-color:none;
+   
 }
 #city-input {
     width:80% ;
@@ -23,7 +33,7 @@ h2 {
 
 }
 #search {
-    width: 40px;
+    width: 70px;
     height: 30px;
     background:rgb(30, 134, 219);
     color: #eeeeee;

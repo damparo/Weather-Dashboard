@@ -14,16 +14,23 @@
     <div class="container">
         <h1 id="banner">Weather Dashboard</h1>
         <div class="row">
-            <div class="col-4" id="cityfield">
+            <div class="col-4" id="cityfield" class="card">
                 <h2>Search for a City:</h2>
 
                 <input type="text" id="city-input"><button id="search"><i class="fa fa-search"></i></button>
-                <ul id="citieshere"></ul>
+                <!-- removing the indentation on the ul -->
+                <ul id="citieshere" class="list-group list-group-flush"></ul> 
             </div>
-            <div class="col-8" id="weatherdetails">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col" id="weatherdetails1"></div>
+                </div>
+                <div class="row" id="weatherdetails2">
+                    <!-- <div id="weatherdetails2"></div> -->
+                </div>
             </div>
         </div>
-<!--should've used the bootstrap cards for the forecast-->
+<!-- should've used the bootstrap cards for the forecast -->
 
     </div>
 
