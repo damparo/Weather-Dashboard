@@ -12,3 +12,6 @@ The dashboard was built using dynamic functions/buttons and relied upon setting 
 
 ## Thoughts:
 For some reason my local storage was not working properly so I have to go back and rework it.  Also, I decided to build the five day forecast using jquery so the layout is not horizontal.
+
+## Update:
+Local storage is now functional.  Card Layout is correct.  There are still some features that need to be addressed for a later time.
