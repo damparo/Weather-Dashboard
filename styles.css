@@ -1,40 +1,17 @@
 #banner {
+    color: white;
     background-color: black;
-    text-align: center;
-    color:white;
     padding: 10px;
-    width: auto;
+    text-align: center;
 }
-
-/* .col-4 { 
-    background-color: rgba(212, 129, 129, 0.897);
-} */
-#citieshere {
-    list-style-type: none;
-    padding-left: 0;
-    /* display: flex; */
-    background: none;
-    color: inherit;
-    outline: inherit;
+#search-info {
+    padding-left: 35px;
+    
 }
-h2 {
-    font-size: 25px;
+#search-city {
+    width:75% ;
 }
-#weatherdetails1 {
-    background-color:none;
-  
-}
-#weatherdetails2 {
-    background-color:none;
-   
-}
-#city-input {
-    width:80% ;
-
-
-
-}
-#search {
+#search-btn {
     width: 70px;
     height: 30px;
     background:rgb(30, 134, 219);
@@ -42,6 +19,38 @@ h2 {
     outline-color:rgb(74, 152, 216);
 }
 
+#current-forecast {
+    margin-top: 40px;
+    padding-left: 30px;
+    /* border-style: solid; */
+}
+
+#city-field {
+    margin-top: 10px;
+    list-style: none;
+    padding-left: 0;
+    
+
+}
+
+#card-deck {
+    padding-left: 25px;
+}
+
 .card-body {
-    background-color: rgb(135, 220, 226);
+    background-color: rgb(36, 36, 238);
+    color: white;
+    margin: 5px;
+    padding-top: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    width: 135px;
+    height: 185px;
+    text-align: center;
+}
+
+.card {
+    border: none;
+
 }
