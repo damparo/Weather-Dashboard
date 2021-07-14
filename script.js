@@ -3,6 +3,8 @@ var cityHolder = [];
 $("#search-btn").on("click", function (event) {
   event.preventDefault();
 
+  $("#current-forecast").show();
+
   var city = $("#search-city").val();
   var apiKey = "9f3310b38a0b78b3d966eb1da9d1599e";
   var queryURL =
@@ -32,8 +34,11 @@ $("#search-btn").on("click", function (event) {
         .append(
           $("<h2>").text(cityName).append($("<img>").attr("src", wIcon)),
           $("<div>")
-            .text("Temperature: " + currentTemp + " °F")
-            .css("margin-top", "20px"),
+            .text(currentTemp + " °F")
+            .css({"margin-top": "20px",
+          "font-size": "35px"
+          
+          }),
           $("<div>")
             .text("Humidity: " + currentHumid + " %")
             .css("margin-top", "20px"),
