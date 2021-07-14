@@ -1,22 +1,26 @@
 #banner {
-    color: white;
-    background-color: black;
+    color: #10BA00;
+    /* background-color: #912026; */
     padding: 10px;
     text-align: center;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 35px;
 }
 #search-info {
     padding-left: 35px;
     
 }
 #search-city {
+    text-align: center;
     width:75% ;
 }
 #search-btn {
     width: 70px;
     height: 30px;
-    background:rgb(30, 134, 219);
-    color: #eeeeee;
-    outline-color:rgb(74, 152, 216);
+    background:transparent;
+    color: #10BA00;
+    border: none;
+    /* outline-color:rgb(74, 152, 216); */
 }
 
 #current-forecast {
