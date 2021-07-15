@@ -37,7 +37,8 @@ $("#search-btn").on("click", function (event) {
           $("<div>")
             .text(currentTemp + " °F")
             .css({
-          "font-size": "50px"
+          "font-size": "50px",
+          // "color": "#10BA00",
           
           })
           // $("<div>")
@@ -54,8 +55,8 @@ $("#search-btn").on("click", function (event) {
         //     .css("font-style", "bold")
         // );
 
-        $("#humidity").text(currentHumid + "%").css("font-size", "20px")
-         $("#wind").text(currentWind + " mph").css("font-size", "20px")
+        $("#humidity").text(currentHumid + "%").css("font-size", "15px")
+         $("#wind").text(currentWind + " mph").css("font-size", "15px")
 
 
 

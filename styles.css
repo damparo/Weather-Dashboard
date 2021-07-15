@@ -8,30 +8,44 @@
 }
 
 #banner {
-    color: #10BA00;
+    /* color: #10BA00; */
+    color: darkmagenta;
     /* background-color: #912026; */
     padding: 10px;
     text-align: center;
     font-family: 'Sulphur Point', sans-serif;
     font-size: 35px;
+    margin-top: 2vh;
 }
-#search-info {
+.field {
     padding-left: 35px;
     text-align: center;
+    width: 100%;
     
 }
+
+@media only screen and (min-width: 768px) {
+    .field {
+        width: 50%;
+        margin-left: 275px;
+    }
+  }
+
+
+
 #search-city {
     text-align: center;
     width:75% ;
     font-size: 20px;
     border-radius: 50px 50px;
+    border: solid 1.5px black;
 
 }
 #search-btn {
     width: 45px;
     height: 30px;
     background:transparent;
-    color: #10BA00;
+    color: darkmagenta;
     border: none;
     /* outline-color:rgb(74, 152, 216); */
 }
@@ -86,6 +100,7 @@
 .weatherdetails {
 
     display: none;
+    font-size: 10px;
 }
 
 .citydetails{
@@ -130,4 +145,8 @@
 .card {
     border: none;
 
+}
+
+.list {
+    text-align: center;
 }
