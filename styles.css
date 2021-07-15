@@ -1,9 +1,9 @@
 .container {
 
-    /* flex-direction: column;
+    flex-direction: column;
    
     justify-content: center;
-    align-content: center; */
+    align-content: center;
 
 }
 
@@ -17,14 +17,18 @@
 }
 #search-info {
     padding-left: 35px;
+    text-align: center;
     
 }
 #search-city {
     text-align: center;
     width:75% ;
+    font-size: 20px;
+    border-radius: 50px 50px;
+
 }
 #search-btn {
-    width: 70px;
+    width: 45px;
     height: 30px;
     background:transparent;
     color: #10BA00;
