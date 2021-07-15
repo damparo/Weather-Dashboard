@@ -33,7 +33,7 @@ $("#search-btn").on("click", function (event) {
       $("#current-forecast")
         .empty()
         .append(
-          $("<h2>").text(cityName).append($("<img>").attr("src", wIcon)),
+          $("<h3>").text(cityName).append($("<img>").attr("src", wIcon)),
           $("<div>")
             .text(currentTemp + " °F")
             .css({
@@ -145,12 +145,16 @@ function retrieveCity() {
           .css({
             width: "341px",
             "text-align": "left",
-            "background-color": "white",
-            padding: "10px",
-            "padding-left": "15px",
-            "border-style": "solid",
-            "border-width": "thin",
-            "border-color": "lightgrey",
+            "background-color": "#CA88E0",
+            // padding: "10px",
+            // "padding-left": "15px",
+            // "border-style": "solid",
+            // "border-width": "1.8px",
+            // "border-color": "#8B008B",
+            "margin-bottom": "5px",
+            "color": "white",
+            "font-size": "25px",
+            "border": "none"
           })
           .text(getCity[i])
           .addClass("grab-city")
