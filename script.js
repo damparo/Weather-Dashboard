@@ -87,7 +87,7 @@ $("#search-btn").on("click", function (event) {
         url: forecastQueryURL,
         method: "GET",
       }).then(function (responseForecast) {
-        console.log(forecastQueryURL);
+        // console.log(forecastQueryURL);
         console.log(responseForecast);
 
         // $("#forecast").append(
@@ -101,6 +101,7 @@ $("#search-btn").on("click", function (event) {
           var tempFore = responseForecast.list[i].main.temp;
           var humFore = responseForecast.list[i].main.humidity;
           var howOutside = responseForecast.list[i].weather[0].icon;
+          var theDate = responseForecast.list[i].dt_txt;
           var imgHowOutside =
             "https://openweathermap.org/img/w/" + howOutside + ".png";
           console.log(humFore);
@@ -116,9 +117,10 @@ $("#search-btn").on("click", function (event) {
                       .addClass("card-text")
                       .append(
                         $("<img>").attr("src", imgHowOutside),
-                        $("<p>").text("Temp: " + tempFore + " °F"),
+                        $("<p>").text(tempFore + " °F"),
+                        $("<p>").text(theDate)
                         // $("<br>"),
-                        $("<p>").text("Humidity: " + humFore + " %")
+                        // $("<p>").text("Humidity: " + humFore + "%")
                       )
                   )
               )
