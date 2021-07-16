@@ -20,7 +20,7 @@ $("#search-btn").on("click", function (event) {
   }).then(function (response) {
     console.log(response);
 
-    var currentTemp = response.main.temp;
+    var currentTemp = Math.round(response.main.temp);
     var currentHumid = response.main.humidity;
     var currentWind = response.wind.speed;
     // var currentLat = response.coord.lat;
@@ -35,7 +35,7 @@ $("#search-btn").on("click", function (event) {
         .append(
           $("<h3>").text(cityName).append($("<img>").attr("src", wIcon)),
           $("<div>")
-            .text(currentTemp + " °F")
+            .text(currentTemp + "°F")
             .css({
           "font-size": "50px",
           // "color": "#10BA00",
