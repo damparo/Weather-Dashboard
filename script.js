@@ -91,8 +91,8 @@ $("#search-btn").on("click", function (event) {
         console.log(responseForecast);
 
 
-        var fiveDay = responseForecast.list;
-        console.log(fiveDay);
+        // var fiveDay = responseForecast.list;
+        // console.log(fiveDay);
 
         // $("#forecast").append(
         // $("<h4>").text("5 Day Forecast")),
@@ -102,52 +102,46 @@ $("#search-btn").on("click", function (event) {
         // );
         $("#card-deck").empty();
 
-        var fiveDayForecast = [];
-
-        for (var i = 0; i < fiveDay.length; i++) {
-
-          var fortyEntries = responseForecast.list[i];
-           
-          
-          
-          if ( fortyEntries === responseForecast.list[2] || fortyEntries === responseForecast.list[10] || fortyEntries === responseForecast.list[18] || fortyEntries === responseForecast.list[26] || fortyEntries === responseForecast.list[34]){
-
-              fiveDayForecast.push(responseForecast.list[2], responseForecast.list[10], responseForecast.list[18], responseForecast.list[26], responseForecast.list[34])
-
-          };};
-          
-          console.log(fiveDayForecast);
-
-          
-          
-          // var tempFore = responseForecast.list[i].main.temp;
-          // var humFore = responseForecast.list[i].main.humidity;
-          // var howOutside = responseForecast.list[i].weather[0].icon;
-          // var theDate = responseForecast.list[i].dt_txt;
-          // var imgHowOutside =
-          //   "https://openweathermap.org/img/w/" + howOutside + ".png";
-          // console.log(humFore);
-
-          // $("#card-deck").append(
-          //   $("<div>")
-          //     .addClass("card")
-          //     .append(
-          //       $("<div>")
-          //         .addClass("card-body")
-          //         .append(
-          //           $("<p>")
-          //             .addClass("card-text")
-          //             .append(
-          //               $("<img>").attr("src", imgHowOutside),
-          //               $("<p>").text(tempFore + "°F"),
-          //               $("<p>").text(theDate)
-          //               // $("<br>"),
-          //               // $("<p>").text("Humidity: " + humFore + "%")
-          //             )
-          //         )
-          //     )
-          // );
+      
         
+        var fiveDayForeCast = [];
+
+        fiveDayForeCast.push(responseForecast.list[2], responseForecast.list[10], responseForecast.list[18], responseForecast.list[26], responseForecast.list[34])
+
+
+        console.log(fiveDayForeCast);
+
+        for (var i = 0; i < fiveDayForeCast.length; i++) {
+
+          // var dayToDay = fiveDayForeCast[i];
+          var tempFore = fiveDayForeCast[i].main.temp;
+          var humFore = fiveDayForeCast[i].main.humidity;
+          var howOutside = fiveDayForeCast[i].weather[0].icon;
+          var theDate = fiveDayForeCast[i].dt_txt;
+          var imgHowOutside =
+            "https://openweathermap.org/img/w/" + howOutside + ".png";
+          console.log(humFore);
+
+          $("#card-deck").append(
+            $("<div>")
+              .addClass("card")
+              .append(
+                $("<div>")
+                  .addClass("card-body")
+                  .append(
+                    $("<p>")
+                      .addClass("card-text")
+                      .append(
+                        $("<img>").attr("src", imgHowOutside),
+                        $("<p>").text(tempFore + "°F"),
+                        $("<p>").text(theDate)
+                        // $("<br>"),
+                        // $("<p>").text("Humidity: " + humFore + "%")
+                      )
+                  )
+              )
+          );
+      };
       });
     }
 
