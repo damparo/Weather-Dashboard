@@ -22,7 +22,7 @@ $("#search-btn").on("click", function (event) {
 
     var currentTemp = Math.round(response.main.temp);
     var currentHumid = response.main.humidity;
-    var currentWind = response.wind.speed;
+    var currentWind = Math.round(response.wind.speed);
     // var currentLat = response.coord.lat;
     // var currentLon = response.coord.lon;
     var image = response.weather[0].icon;
@@ -114,7 +114,7 @@ $("#search-btn").on("click", function (event) {
         for (var i = 0; i < fiveDayForeCast.length; i++) {
 
           // var dayToDay = fiveDayForeCast[i];
-          var tempFore = fiveDayForeCast[i].main.temp;
+          var tempFore = Math.round(fiveDayForeCast[i].main.temp);
           var humFore = fiveDayForeCast[i].main.humidity;
           var howOutside = fiveDayForeCast[i].weather[0].icon;
           var theDate = fiveDayForeCast[i].dt_txt;
