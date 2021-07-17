@@ -123,7 +123,7 @@ $("#search-btn").on("click", function (event) {
           var dayOfTheWeek = plainDate.toString().split(' ')[0];
           // toLocaleString('en-us', {weekday:'long'})
           // var shortHandDay = dayOfTheWeek.toString.splice(0,2);
-          console.log(dayOfTheWeek);
+          console.log(plainDate);
           var imgHowOutside =
             "https://openweathermap.org/img/w/" + howOutside + ".png";
           // console.log(humFore);
@@ -140,7 +140,7 @@ $("#search-btn").on("click", function (event) {
                       .append(
                         $("<img>").attr("src", imgHowOutside),
                         $("<p>").text(tempFore + "°F"),
-                        $("<p>").text(dayOfTheWeek)
+                        $("<p>").text(plainDate)
                         // $("<br>"),
                         // $("<p>").text("Humidity: " + humFore + "%")
                       )
