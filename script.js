@@ -120,7 +120,7 @@ $("#search-btn").on("click", function (event) {
           var humFore = fiveDayForeCast[i].main.humidity;
           var howOutside = fiveDayForeCast[i].weather[0].icon;
           var theDate = fiveDayForeCast[i].dt_txt;
-          var plainDate = moment(theDate).format('dddd');
+          var plainDate = moment(theDate).format('ddd');
           // var plainDate = new Date(theDate);
           console.log(plainDate);
           // var dayOfTheWeek = plainDate.toString().split(' ')[0];
@@ -141,9 +141,9 @@ $("#search-btn").on("click", function (event) {
                     $("<p>")
                       .addClass("card-text")
                       .append(
-                        $("<img>").attr("src", imgHowOutside),
-                        $("<p>").text(tempFore + "°F"),
-                        $("<p>").text(plainDate)
+                        $("<img>").attr("src", imgHowOutside).css("font-size", "12px"),
+                        $("<p>").text(tempFore + "°F").css("font-size", "14px"),
+                        $("<p>").text(plainDate).css("font-size", "12px")
                         // $("<br>"),
                         // $("<p>").text("Humidity: " + humFore + "%")
                       )
