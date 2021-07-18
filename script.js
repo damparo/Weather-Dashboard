@@ -120,8 +120,9 @@ $("#search-btn").on("click", function (event) {
           var humFore = fiveDayForeCast[i].main.humidity;
           var howOutside = fiveDayForeCast[i].weather[0].icon;
           var theDate = fiveDayForeCast[i].dt_txt;
-          var plainDate = moment(theDate).toDate();
+          var plainDate = moment(theDate).format('dddd');
           // var plainDate = new Date(theDate);
+          console.log(plainDate);
           var dayOfTheWeek = plainDate.toString().split(' ')[0];
           // toLocaleString('en-us', {weekday:'long'})
           // var shortHandDay = dayOfTheWeek.toString.splice(0,2);
