@@ -4,7 +4,7 @@ $("#search-btn").on("click", function (event) {
   event.preventDefault();
 
   $("#current-forecast").show();
-  $(".weatherdetails").show();
+ 
 
   var city = $("#search-city").val();
   var apiKey = "9f3310b38a0b78b3d966eb1da9d1599e";
@@ -55,8 +55,10 @@ $("#search-btn").on("click", function (event) {
         //     .css("font-style", "bold")
         // );
 
-        $("#humidity").text(currentHumid + "%").css("font-size", "15px")
-         $("#wind").text(currentWind + " mph").css("font-size", "15px")
+        $("#humidity").text(currentHumid + "%").css("font-size", "15px");
+         $("#wind").text(currentWind + " mph").css("font-size", "15px");
+         $(".weatherdetails1").text("Humidity");
+         $(".weatherdetails2").text("Wind");
 
 
 
@@ -123,7 +125,7 @@ $("#search-btn").on("click", function (event) {
           var dayOfTheWeek = plainDate.toString().split(' ')[0];
           // toLocaleString('en-us', {weekday:'long'})
           // var shortHandDay = dayOfTheWeek.toString.splice(0,2);
-          console.log(plainDate);
+          console.log(dayOfTheWeek);
           var imgHowOutside =
             "https://openweathermap.org/img/w/" + howOutside + ".png";
           // console.log(humFore);
@@ -140,7 +142,7 @@ $("#search-btn").on("click", function (event) {
                       .append(
                         $("<img>").attr("src", imgHowOutside),
                         $("<p>").text(tempFore + "°F"),
-                        $("<p>").text(plainDate)
+                        $("<p>").text(dayOfTheWeek)
                         // $("<br>"),
                         // $("<p>").text("Humidity: " + humFore + "%")
                       )
@@ -157,6 +159,10 @@ $("#search-btn").on("click", function (event) {
     localStorage.setItem("city", JSON.stringify(cityHolder));
     retrieveCity();
   });
+
+  $(".weatherdetails1").show();
+  $(".weatherdetails2").show();
+
 });
 
 function retrieveCity() {

@@ -99,7 +99,12 @@
 
 }
 
-.weatherdetails {
+.weatherdetails1 {
+
+    display: none;
+    font-size: 10px;
+}
+.weatherdetails2 {
 
     display: none;
     font-size: 10px;
