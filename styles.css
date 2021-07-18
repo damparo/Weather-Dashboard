@@ -140,13 +140,14 @@
     /* background-color: rgb(36, 36, 238); */
     color: black;
     margin: 5px;
-    padding-top: 30px;
+    /* padding-top: 30px;
     padding-right: 10px;
     padding-left: 10px;
-    padding-bottom: 10px;
-    width: 135px;
-    height: 185px;
+    padding-bottom: 10px; */
+    /* width: 135px;
+    height: 185px; */
     text-align: center;
+    padding: none;
 }
 
 .card {
