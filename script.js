@@ -1,11 +1,12 @@
+// array in global scope to hold and access cities
+
 var cityHolder = [];
 
+// search bar value - city look up
 $("#search-btn").on("click", function (event) {
   event.preventDefault();
-
+  // this line will display day forecast
   $("#current-forecast").show();
- 
-
   var city = $("#search-city").val();
   var apiKey = "9f3310b38a0b78b3d966eb1da9d1599e";
   var queryURL =
@@ -14,6 +15,7 @@ $("#search-btn").on("click", function (event) {
     "&units=imperial&appid=" +
     apiKey;
 
+  //call openweather api and retrieve day forecast data
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -23,8 +25,6 @@ $("#search-btn").on("click", function (event) {
     var currentTemp = Math.round(response.main.temp);
     var currentHumid = response.main.humidity;
     var currentWind = Math.round(response.wind.speed);
-    // var currentLat = response.coord.lat;
-    // var currentLon = response.coord.lon;
     var image = response.weather[0].icon;
     var cityName = response.name;
     var wIcon = "https://openweathermap.org/img/w/" + image + ".png";
@@ -37,47 +37,21 @@ $("#search-btn").on("click", function (event) {
           $("<div>")
             .text(currentTemp + "°F")
             .css({
-          "font-size": "50px",
-          // "color": "#10BA00",
-          
-          })
-          // $("<div>")
-          //   .text("Humidity: " + currentHumid + " %")
-          //   .css("margin-top", "20px"),
-          // $("<div>")
-          //   .text("Wind Speed: " + currentWind + " MPH")
-          //   .css("margin-top", "20px")
+              "font-size": "50px",
+            })
         );
-        // .append(
-        //   $("<div>")
-        //     .text("5-Day Forecast")
-        //     .css("margin-top", "20px")
-        //     .css("font-style", "bold")
-        // );
 
-        $("#humidity").text(currentHumid + "%").css("font-size", "15px");
-         $("#wind").text(currentWind + " mph").css("font-size", "15px");
-         $(".weatherdetails1").text("Humidity");
-         $(".weatherdetails2").text("Wind");
+      $("#humidity")
+        .text(currentHumid + "%")
+        .css("font-size", "15px");
+      $("#wind")
+        .text(currentWind + " mph")
+        .css("font-size", "15px");
+      $(".weatherdetails1").text("Humidity");
+      $(".weatherdetails2").text("Wind");
+    }
 
-
-
-
-        // .append(
-        //    $("<div>")
-        //         .addClass("row")
-        //         .append(
-        //           $("<div>")
-        //             .addClass("card-deck")).append(fiveCards)
-        // )
-        
-
-      
-
-     
-    };
-
-
+    // function to call openweather api and retrieve five day forecast data
     function fiveCards() {
       var forecastQueryURL =
         "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -89,47 +63,29 @@ $("#search-btn").on("click", function (event) {
         url: forecastQueryURL,
         method: "GET",
       }).then(function (responseForecast) {
-        // console.log(forecastQueryURL);
         console.log(responseForecast);
-
-
-        // var fiveDay = responseForecast.list;
-        // console.log(fiveDay);
-
-        // $("#forecast").append(
-        // $("<h4>").text("5 Day Forecast")),
-        // $("#forecast").empty();
-
-        // $("#weatherdetails2").empty();
-        // );
         $("#card-deck").empty();
-
-      
-        
         var fiveDayForeCast = [];
-
-        fiveDayForeCast.push(responseForecast.list[2], responseForecast.list[10], responseForecast.list[18], responseForecast.list[26], responseForecast.list[34])
-
-
+        fiveDayForeCast.push(
+          responseForecast.list[2],
+          responseForecast.list[10],
+          responseForecast.list[18],
+          responseForecast.list[26],
+          responseForecast.list[34]
+        );
         console.log(fiveDayForeCast);
 
         for (var i = 0; i < fiveDayForeCast.length; i++) {
-
-          // var dayToDay = fiveDayForeCast[i];
           var tempFore = Math.round(fiveDayForeCast[i].main.temp);
           var humFore = fiveDayForeCast[i].main.humidity;
           var howOutside = fiveDayForeCast[i].weather[0].icon;
           var theDate = fiveDayForeCast[i].dt_txt;
-          var plainDate = moment(theDate).format('ddd');
-          // var plainDate = new Date(theDate);
+          var plainDate = moment(theDate).format("ddd");
+
           console.log(plainDate);
-          // var dayOfTheWeek = plainDate.toString().split(' ')[0];
-          // toLocaleString('en-us', {weekday:'long'})
-          // var shortHandDay = dayOfTheWeek.toString.splice(0,2);
-          // console.log(dayOfTheWeek);
+
           var imgHowOutside =
             "https://openweathermap.org/img/w/" + howOutside + ".png";
-          // console.log(humFore);
 
           $("#card-deck").append(
             $("<div>")
@@ -141,16 +97,18 @@ $("#search-btn").on("click", function (event) {
                     $("<p>")
                       .addClass("card-text")
                       .append(
-                        $("<img>").attr("src", imgHowOutside).css("font-size", "12px"),
-                        $("<p>").text(tempFore + "°F").css("font-size", "14px"),
+                        $("<img>")
+                          .attr("src", imgHowOutside)
+                          .css("font-size", "12px"),
+                        $("<p>")
+                          .text(tempFore + "°F")
+                          .css("font-size", "14px"),
                         $("<p>").text(plainDate).css("font-size", "12px")
-                        // $("<br>"),
-                        // $("<p>").text("Humidity: " + humFore + "%")
                       )
                   )
               )
           );
-      };
+        }
       });
     }
 
@@ -163,9 +121,9 @@ $("#search-btn").on("click", function (event) {
 
   $(".weatherdetails1").show();
   $(".weatherdetails2").show();
-
 });
 
+// function creates city list
 function retrieveCity() {
   $("#city-field").empty();
   var getCity = JSON.parse(localStorage.getItem("city")) || [];
@@ -177,15 +135,10 @@ function retrieveCity() {
             width: "341px",
             "text-align": "left",
             "background-color": "#CA88E0",
-            // padding: "10px",
-            // "padding-left": "15px",
-            // "border-style": "solid",
-            // "border-width": "1.8px",
-            // "border-color": "#8B008B",
             "margin-bottom": "5px",
-            "color": "white",
+            color: "white",
             "font-size": "25px",
-            "border": "none"
+            border: "none",
           })
           .text(getCity[i])
           .addClass("grab-city")
@@ -195,7 +148,9 @@ function retrieveCity() {
   }
 }
 
-$("#city-field").on("click", ".grab-city", function () {
+// allows user to click on a city from the list and retrieve forecast data again
+
+$("#city-field").on("click", ".grab-city", function (event) {
   event.preventDefault();
   var cityAgain = $(this).attr("data-location");
   console.log(cityAgain);
@@ -227,22 +182,22 @@ $("#city-field").on("click", ".grab-city", function () {
       $("#current-forecast")
         .empty()
         .append(
-          $("<h2>").text(cityName).append($("<img>").attr("src", wIcon)),
+          $("<h3>").text(cityName).append($("<img>").attr("src", wIcon)),
           $("<div>")
-            .text("Temperature: " + currentTemp + " °F")
-            .css("margin-top", "20px"),
-          $("<div>")
-            .text("Humidity: " + currentHumid + " %")
-            .css("margin-top", "20px"),
-          $("<div>")
-            .text("Wind Speed: " + currentWind + " MPH")
-            .css("margin-top", "20px")
-        ).append(
-          $("<div>")
-            .text("5-Day Forecast")
-            .css("margin-top", "20px")
-            .css("font-style", "bold")
+            .text(currentTemp + "°F")
+            .css({
+              "font-size": "50px",
+            })
         );
+
+      $("#humidity")
+        .text(currentHumid + "%")
+        .css("font-size", "15px");
+      $("#wind")
+        .text(currentWind + " mph")
+        .css("font-size", "15px");
+      $(".weatherdetails1").text("Humidity");
+      $(".weatherdetails2").text("Wind");
     }
     displayInfo();
   });
