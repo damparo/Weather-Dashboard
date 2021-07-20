@@ -1,172 +1,157 @@
 .container {
+  flex-direction: column;
 
-    flex-direction: column;
-   
-    justify-content: center;
-    align-content: center;
-
+  justify-content: center;
+  align-content: center;
 }
 
 #banner {
-    /* color: #10BA00; */
-    color: darkmagenta;
-    /* background-color: #912026; */
-    padding: 10px;
-    text-align: center;
-    font-family: 'Sulphur Point', sans-serif;
-    font-size: 35px;
-    margin-top: 2vh;
+  /* color: #10BA00; */
+  color: darkmagenta;
+  /* background-color: #912026; */
+  padding: 10px;
+  text-align: center;
+  font-family: "Sulphur Point", sans-serif;
+  font-size: 35px;
+  margin-top: 2vh;
 }
 .field {
-    padding-left: 35px;
-    text-align: center;
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    
+  padding-left: 35px;
+  text-align: center;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 768px) {
-    .field {
-        width: 50%;
-        margin-left: 275px;
-    }
+  .field {
+    width: 50%;
+    margin-left: 275px;
   }
-
-
+}
 
 #search-city {
-    text-align: center;
-    width:75% ;
-    font-size: 20px;
-    border-radius: 50px 50px;
-    border: solid 1.5px darkmagenta;
-
+  text-align: center;
+  width: 75%;
+  font-size: 20px;
+  border-radius: 50px 50px;
+  border: solid 1.5px darkmagenta;
 }
 #search-btn {
-    width: 45px;
-    height: 30px;
-    background:transparent;
-    color: darkmagenta;
-    border: none;
-    /* outline-color:rgb(74, 152, 216); */
+  width: 45px;
+  height: 30px;
+  background: transparent;
+  color: darkmagenta;
+  border: none;
+  /* outline-color:rgb(74, 152, 216); */
 }
 
-#additionalinfo{
-
-    text-align: center;
-
-
+#additionalinfo {
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
-    #additionalinfo {
-        margin-left: 3rem;
-        margin-right: 3rem;
-    }
-    #card-deck {
-        margin-left: 1%;
-    }
+  #additionalinfo {
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
+  #card-deck {
+    margin-left: 1%;
+  }
+}
 
-  @media only screen and (min-width: 600px) {
-    #additionalinfo {
-        margin-left: 8rem;
-        margin-right: 8rem;
-    }
+@media only screen and (min-width: 600px) {
+  #additionalinfo {
+    margin-left: 8rem;
+    margin-right: 8rem;
   }
+}
 
 @media only screen and (min-width: 768px) {
-    #additionalinfo {
-        margin-left: 14rem;
-        margin-right: 14rem;
-    }
-    #card-deck {
-        margin-left: 35%;
-    }
-
+  #additionalinfo {
+    margin-left: 14rem;
+    margin-right: 14rem;
+  }
+  #card-deck {
+    margin-left: 35%;
+  }
 }
 
 @media only screen and (min-width: 992px) {
-    #additionalinfo {
-        margin-left: 22rem;
-        margin-right: 22rem;
-    }
-    #card-deck {
-        margin-left: 35%;
-    }
-
+  #additionalinfo {
+    margin-left: 22rem;
+    margin-right: 22rem;
+  }
+  #card-deck {
+    margin-left: 35%;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
-
-    #additionalinfo {
-        margin-left: 27rem;
-        margin-right: 27rem;
-    }
-    #card-deck {
-        margin-left: 35%;
-    }
-
-
+  #additionalinfo {
+    margin-left: 27rem;
+    margin-right: 27rem;
+  }
+  #card-deck {
+    margin-left: 35%;
+  }
 }
 
 .weatherdetails1 {
-
-    display: none;
-    font-size: 10px;
+  display: none;
+  font-size: 10px;
 }
 .weatherdetails2 {
-
-    display: none;
-    font-size: 10px;
+  display: none;
+  font-size: 10px;
 }
 
-.citydetails{
-
-    font-size: 10px;
-    font-weight: bold;
+.citydetails {
+  font-size: 10px;
+  font-weight: bold;
 }
 
 #current-forecast {
-    margin-top: 15px;
-    /* padding-left: 30px; */
-    display: none;
-    text-align: center;
-    /* border-style: solid; */
+  margin-top: 15px;
+  /* padding-left: 30px; */
+  display: none;
+  text-align: center;
+  /* border-style: solid; */
 }
 
 #city-field {
-    margin-top: 10px;
-    list-style: none;
-    padding-left: 0;
-    
-
+  margin-top: 10px;
+  list-style: none;
+  padding-left: 0;
 }
 
 #card-deck {
-    /* padding-left: 25px; */
+  /* padding-left: 25px; */
 }
 
 .card-body {
-    /* background-color: rgb(36, 36, 238); */
-    color: black;
-    /* margin: 5px; */
-    /* padding-top: 30px;
+  /* background-color: rgb(36, 36, 238); */
+  color: black;
+  /* margin: 5px; */
+  /* padding-top: 30px;
     padding-right: 10px;
     padding-left: 10px;
     padding-bottom: 10px; */
-    /* width: 135px;
+  /* width: 135px;
     height: 185px; */
-    text-align: center;
-    padding: 0.6rem;
+  text-align: center;
+  padding: 0.6rem;
 }
 
 .card {
-    border: none;
-
+  border: none;
 }
 
 .list {
-    text-align: center;
+  text-align: center;
+}
+
+.grab-city:hover {
+  background-color: darkmagenta;
+  color: white;
 }

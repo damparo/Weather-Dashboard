@@ -137,12 +137,15 @@ function retrieveCity() {
         $("<button>")
           .css({
             width: "341px",
-            "text-align": "left",
-            "background-color": "#CA88E0",
+            "text-align": "center",
+            "background-color": "white",
             "margin-bottom": "5px",
-            color: "white",
+            color: "darkmagenta",
             "font-size": "25px",
-            border: "none",
+            // border: "darkmagenta",
+            // "border-style": "solid",
+            // "border-width": "0.5px"
+            border: "none"
           })
           .text(getCity[i])
           .addClass("grab-city")
@@ -170,14 +173,14 @@ $("#city-field").on("click", ".grab-city", function (event) {
     $.ajax({
       url: queryURL,
       method: "GET",
-    }).then(function (response2) {
-      console.log(response2);
+    }).then(function (response) {
+      console.log(response);
   
-      let currentTemp = Math.round(response2.main.temp);
-      let currentHumid = response2.main.humidity;
-      let currentWind = Math.round(response2.wind.speed);
-      let image = response2.weather[0].icon;
-      let cityName = response2.name;
+      let currentTemp = Math.round(response.main.temp);
+      let currentHumid = response.main.humidity;
+      let currentWind = Math.round(response.wind.speed);
+      let image = response.weather[0].icon;
+      let cityName = response.name;
       let wIcon = "https://openweathermap.org/img/w/" + image + ".png";
 
       displayInfo(cityName, currentTemp, currentHumid, currentWind, wIcon);
