@@ -1,12 +1,16 @@
-// array in global scope to hold and access cities
+// array in global scope to hold and access cities and temperature
 
 let cityHolder = [];
+let tempHolder = [];
 
-// search bar value - city look up
+// search bar 
 $("#search-btn").on("click", function (event) {
   event.preventDefault();
+
   // this line will display day forecast
   $("#current-forecast").show();
+
+  // set up API call
   let city = $("#search-city").val();
   const apiKey = "9f3310b38a0b78b3d966eb1da9d1599e";
   const queryURL =
@@ -29,12 +33,22 @@ $("#search-btn").on("click", function (event) {
     const cityName = response.name;
     const wIcon = "https://openweathermap.org/img/w/" + image + ".png";
     
+
+    // run the displayInfo function where the weather api data will be arranged on the page
     displayInfo(cityName, currentTemp, currentHumid, currentWind, wIcon);
+
+    // run fiveCards which arranges and displays the five day forecast
     fiveCards(cityName);
     
+    // push city name and temp to global arrays
     cityHolder.push(cityName);
+    tempHolder.push(currentTemp);
 
+    // save the city and temp arrays to localstorage for access later
     localStorage.setItem("city", JSON.stringify(cityHolder));
+    localStorage.setItem("temp", JSON.stringify(tempHolder));
+
+    // this function creates city list of all cities that have been searched for
     retrieveCity();
 
   });
@@ -153,9 +167,18 @@ function retrieveCity() {
       )
     );
   }
+
+  // This feature would all the temperature to the city list
+  // let getTemp = JSON.parse(localStorage.getItem("temp")) || [];
+  // for (let i = 0; i < getTemp.length; i++) {
+
+  //     $(".grab-city").append($("<p>").text(getTemp[i]))
+
+  // }
+
 }
 
-// allows user to click on a city from the list and retrieve forecast data again
+// allows user to click on a city from the list and retrieve forecast data again, sends another API call
 
 $("#city-field").on("click", ".grab-city", function (event) {
   event.preventDefault();
@@ -183,6 +206,7 @@ $("#city-field").on("click", ".grab-city", function (event) {
       let cityName = response.name;
       let wIcon = "https://openweathermap.org/img/w/" + image + ".png";
 
+      // call the function again to arrange and display data
       displayInfo(cityName, currentTemp, currentHumid, currentWind, wIcon);
       fiveCards(cityName, currentTemp, currentHumid, currentWind, wIcon);
       
