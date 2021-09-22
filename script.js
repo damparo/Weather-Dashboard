@@ -3,62 +3,8 @@
 let cityHolder = [];
 let tempHolder = [];
 
-// search bar 
-$("#search-btn").on("click", function (event) {
-  event.preventDefault();
-
-  // this line will display day forecast
-  $("#current-forecast").show();
-
-  // set up API call
-  let city = $("#search-city").val();
-  const apiKey = "9f3310b38a0b78b3d966eb1da9d1599e";
-  const queryURL =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
-    "&units=imperial&appid=" +
-    apiKey;
-
-  //call openweather api and retrieve day forecast data
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-  }).then(function (response) {
-    console.log(response);
-
-    const currentTemp = Math.round(response.main.temp);
-    const currentHumid = response.main.humidity;
-    const currentWind = Math.round(response.wind.speed);
-    const image = response.weather[0].icon;
-    const cityName = response.name;
-    const wIcon = "https://openweathermap.org/img/w/" + image + ".png";
-    
-
-    // run the displayInfo function where the weather api data will be arranged on the page
-    displayInfo(cityName, currentTemp, currentHumid, currentWind, wIcon);
-
-    // run fiveCards which arranges and displays the five day forecast
-    fiveCards(cityName);
-    
-    // push city name and temp to global arrays
-    cityHolder.push(cityName);
-    tempHolder.push(currentTemp);
-
-    // save the city and temp arrays to localstorage for access later
-    localStorage.setItem("city", JSON.stringify(cityHolder));
-    localStorage.setItem("temp", JSON.stringify(tempHolder));
-
-    // this function creates city list of all cities that have been searched for
-    retrieveCity();
-
-  });
-
-  $(".weatherdetails1").show();
-  $(".weatherdetails2").show();
-});
-
 // displays current temp
-function displayInfo(cityName, currentTemp, currentHumid, currentWind, wIcon) {
+displayInfo = (cityName, currentTemp, currentHumid, currentWind, wIcon) => {
   $("#current-forecast")
     .empty()
     .append(
@@ -80,7 +26,7 @@ function displayInfo(cityName, currentTemp, currentHumid, currentWind, wIcon) {
 }
 
 // creates five day forecast
-function fiveCards(cityName) {
+fiveCards = (cityName) => {
   const apiKey = "9f3310b38a0b78b3d966eb1da9d1599e";
   const forecastQueryURL =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -142,7 +88,7 @@ function fiveCards(cityName) {
 }
 
 // function creates city list
-function retrieveCity() {
+retrieveCity = () => {
   $("#city-field").empty();
   let getCity = JSON.parse(localStorage.getItem("city")) || [];
   for (let i = 0; i < getCity.length; i++) {
@@ -177,6 +123,61 @@ function retrieveCity() {
   // }
 
 }
+// search bar 
+$("#search-btn").on("click", function (event) {
+  event.preventDefault();
+
+  // this line will display day forecast
+  $("#current-forecast").show();
+
+  // set up API call
+  let city = $("#search-city").val();
+  const apiKey = "9f3310b38a0b78b3d966eb1da9d1599e";
+  const queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    city +
+    "&units=imperial&appid=" +
+    apiKey;
+
+  //call openweather api and retrieve day forecast data
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+
+    const currentTemp = Math.round(response.main.temp);
+    const currentHumid = response.main.humidity;
+    const currentWind = Math.round(response.wind.speed);
+    const image = response.weather[0].icon;
+    const cityName = response.name;
+    const wIcon = "https://openweathermap.org/img/w/" + image + ".png";
+    
+
+    // run the displayInfo function where the weather api data will be arranged on the page
+    displayInfo(cityName, currentTemp, currentHumid, currentWind, wIcon);
+
+    // run fiveCards which arranges and displays the five day forecast
+    fiveCards(cityName);
+    
+    // push city name and temp to global arrays
+    cityHolder.push(cityName);
+    tempHolder.push(currentTemp);
+
+    // save the city and temp arrays to localstorage for access later
+    localStorage.setItem("city", JSON.stringify(cityHolder));
+    localStorage.setItem("temp", JSON.stringify(tempHolder));
+
+    // this function creates city list of all cities that have been searched for
+    retrieveCity();
+
+  });
+
+  $(".weatherdetails1").show();
+  $(".weatherdetails2").show();
+});
+
+
 
 // allows user to click on a city from the list and retrieve forecast data again, sends another API call
 
